@@ -32,42 +32,42 @@ const LoginPage = () => {
           </div>
         </div>
         <div className="w-full max-w-sm">
-          <input
-            type="email"
-            placeholder="Email"
+            <input
+              type="email"
+              placeholder="Email"
             className="w-full bg-gray-800 p-3 rounded-md text-sm text-white mb-4 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          />
-          <input
-            type="password"
-            placeholder="Password"
+            />
+            <input
+              type="password"
+              placeholder="Password"
             className="w-full bg-gray-800 p-3 rounded-md text-sm text-white mb-2 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          />
+            />
           <div className="text-right text-sm text-blue-400 mb-4 cursor-pointer">
             Forget?
           </div>
         </div>
         <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-md w-full max-w-sm">
-          Login
-        </button>
+            Login
+          </button>
         <div className="mt-4 text-sm">
           No account?{" "}
           <span className="text-blue-400 cursor-pointer">Sign up</span>
-        </div>
+          </div>
         <div className="mt-6">
           <p className="text-center text-white mb-2">Or Login with:</p>
-          <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4">
             <button className="p-2 bg-gray-700 rounded-full">
               <img src="/google-icon.png" alt="Google" className="h-6" />
-            </button>
+              </button>
             <button className="p-2 bg-gray-700 rounded-full">
               <img src="/facebook-icon.png" alt="Facebook" className="h-6" />
-            </button>
+              </button>
             <button className="p-2 bg-gray-700 rounded-full">
               <img src="/microsoft-icon.png" alt="Microsoft" className="h-6" />
-            </button>
+              </button>
             <button className="p-2 bg-gray-700 rounded-full">
               <img src="/twitter-icon.png" alt="Twitter" className="h-6" />
-            </button>
+              </button>
           </div>
         </div>
       </div>
