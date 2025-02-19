@@ -18,7 +18,7 @@ const HeroSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="rounded-xl overflow-hidden shadow-lg col-span-1">
           <img
-            src="/src/assets/girl.jpg"
+            src="/assets/girl.jpg"
             alt="Artist Left"
             className="w-full h-full object-cover"
           />
@@ -26,7 +26,7 @@ const HeroSection = () => {
         <div className="rounded-xl overflow-hidden shadow-lg bg-gray-800 col-span-1 md:col-span-2 flex flex-col md:flex-row">
           <div className="relative w-full md:w-1/2">
             <img
-              src="/src/assets/girl1.jpg"
+              src="/assets/girl1.jpg"
               alt="Artist Right Left"
               className="w-full h-full object-cover"
             />
@@ -44,7 +44,7 @@ const HeroSection = () => {
           </div>
           <div className="w-full md:w-1/2 mt-4 md:mt-0">
             <img
-              src="/src/assets/girl2.jpg"
+              src="/assets/girl2.jpg"
               alt="Artist Right Right"
               className="w-full h-full object-cover"
             />

@@ -1,13 +1,13 @@
 const ExploreArtists = () => {
     const artists = [
-      { name: "Hanna Tinne", role: "Acoustic Visionary", image: "/src/assets/girl1.jpg" },
-      { name: "Oli Page", role: "Acoustic Sculptor", image: "/src/assets/girl1.jpg" },
-      { name: "Doc Lamerik", role: "Poet / Lyricist", image: "/src/assets/girl1.jpg" },
-      { name: "Bergines Prest", role: "Sound Crafter", image: "/src/assets/girl1.jpg" },
-      { name: "Loana Grokels", role: "Creative Force", image: "/src/assets/girl1.jpg" },
-      { name: "Wibrores Belap", role: "Musical Enthusiast", image: "/src/assets/girl1.jpg" },
-      { name: "Ella Vees", role: "Melody Maker", image: "/src/assets/girl1.jpg" },
-      { name: "Nora Blinks", role: "Harmonic Innovator", image: "/src/assets/girl1.jpg" },
+      { name: "Hanna Tinne", role: "Acoustic Visionary", image: "/assets/girl1.jpg" },
+      { name: "Oli Page", role: "Acoustic Sculptor", image: "/assets/girl1.jpg" },
+      { name: "Doc Lamerik", role: "Poet / Lyricist", image: "/assets/girl1.jpg" },
+      { name: "Bergines Prest", role: "Sound Crafter", image: "/assets/girl1.jpg" },
+      { name: "Loana Grokels", role: "Creative Force", image: "/assets/girl1.jpg" },
+      { name: "Wibrores Belap", role: "Musical Enthusiast", image: "/assets/girl1.jpg" },
+      { name: "Ella Vees", role: "Melody Maker", image: "/assets/girl1.jpg" },
+      { name: "Nora Blinks", role: "Harmonic Innovator", image: "/assets/girl1.jpg" },
     ];
   
     return (
