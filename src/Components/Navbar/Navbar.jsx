@@ -51,7 +51,7 @@ const Navbar = () => {
         <nav className={`flex justify-between items-center px-4 py-3 bg-gradient-to-r from-blue-200 via-pink-100 to-purple-200 
           ${isScrolled ? 'shadow-lg backdrop-blur-sm bg-opacity-90' : ''} 
           transition-all duration-300`}>
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/landing" className="flex items-center space-x-2">
             <div className="bg-black text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
               <Disc className="w-6 h-6" />
             </div>
@@ -82,7 +82,7 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex items-center space-x-3">
             <Link
-              to="/login"
+              to="/"
               className="px-6 py-2 bg-white text-purple-600 rounded-full font-medium border-2 border-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Login

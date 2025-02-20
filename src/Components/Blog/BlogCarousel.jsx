@@ -62,10 +62,8 @@ const BlogSection = () => {
     }
   ];
 
-  // Calculate how many posts to show per page based on screen size
   const getPostsPerPage = () => {
-    // This will be handled by CSS grid, but we still need pagination logic
-    return 3; // Show 3 posts per page for pagination
+    return 3; 
   };
 
   const postsPerPage = getPostsPerPage();
@@ -138,7 +136,7 @@ const BlogSection = () => {
         {visiblePosts.map((post) => (
           <div 
             key={post.id}
-            className="bg-white/10 rounded-lg overflow-hidden hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group"
+            className="bg-white/10 rounded-lg overflow-hidden hover:bg-white/15 transition-all duration-300 transform  hover:shadow-lg group"
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
@@ -209,4 +207,3 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
-
