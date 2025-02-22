@@ -7,7 +7,7 @@ import {
   UserCircle, 
   Music, 
   Search,
-  Disc,
+  // Disc,
   Sparkles,
   Users,
   TrendingUp
@@ -51,11 +51,12 @@ const Navbar = () => {
         <nav className={`flex justify-between items-center px-4 py-3 bg-gradient-to-r from-blue-200 via-pink-100 to-purple-200 
           ${isScrolled ? 'shadow-lg backdrop-blur-sm bg-opacity-90' : ''} 
           transition-all duration-300`}>
-          <Link to="/landing" className="flex items-center space-x-2">
-            <div className="bg-black text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+          <Link to="https://artswarit.vercel.app/" className="flex items-center space-x-2">
+            {/* <div className="bg-black text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
               <Disc className="w-6 h-6" />
             </div>
-            <h1 className="font-bold text-lg">Artswarit</h1>
+            <h1 className="font-bold text-lg">Artswarit</h1> */}
+            <img src="/assets/logo.svg" alt="Artswarit" className="w-24 h-24" />
           </Link>
           <div className="hidden md:flex items-center max-w-md w-full mx-4">
             <div className="relative w-full">
