@@ -11,7 +11,7 @@ const AuthPages = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/dashboard');
+    navigate('/artist');
   };
   
   const renderLoginFields = () => {
@@ -189,7 +189,7 @@ const AuthPages = () => {
         <>
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="block text-sm font-medium text-gray-700">Artswarit ID</label>
+              <label className="block text-sm font-medium text-gray-700">Email Id</label>
             </div>
             <div className="relative">
               <Music className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -203,7 +203,7 @@ const AuthPages = () => {
 
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="block text-sm font-medium text-gray-700">Access Code</label>
+              <label className="block text-sm font-medium text-gray-700">Password</label>
             </div>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -377,8 +377,13 @@ const AuthPages = () => {
     </div>
   );
 };
-
 export default AuthPages;
+
+
+
+
+
+
 
 
 // import React, { useState } from 'react';
