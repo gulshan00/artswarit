@@ -5,6 +5,9 @@ import DashboardContent from './DashboardContent ';
 import PortfolioContent from "./PortfolioContent";
 
 
+
+
+
 export default function ArtistDashboard() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('Dashboard');

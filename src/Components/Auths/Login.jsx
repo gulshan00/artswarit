@@ -1,12 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Music, Mail, Lock, User, ArrowRight, Home, Play, Disc, Phone } from 'lucide-react';
 
 const AuthPages = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [loginType, setLoginType] = useState('user'); // 'user' or 'client' or 'artswarit'
+  const [loginType, setLoginType] = useState('user'); 
   const navigate = useNavigate();
   
   const handleSubmit = (e) => {
@@ -363,7 +362,7 @@ const AuthPages = () => {
 
             <div className="flex justify-center">
               <Link 
-                to="/landing"
+                to="/"
                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 transition-colors"
               >
                 <Home className="w-4 h-4" />
