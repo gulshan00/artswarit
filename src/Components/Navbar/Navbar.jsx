@@ -52,7 +52,7 @@ const Navbar = () => {
           ${isScrolled ? 'shadow-lg backdrop-blur-sm bg-opacity-90' : ''} 
           transition-all duration-300`}>
           <Link to="https://artswarit.vercel.app/" className="flex items-center space-x-2">
-            <img src="/assets/logo.svg" alt="Artswarit" className="w-24 h-24 mix-blend-multiply" />
+            <img src="/assets/logo.svg" alt="Artswarit" className="w-32 h-32 mix-blend-multiply" />
           </Link>
           <div className="hidden md:flex items-center max-w-md w-full mx-4">
             <div className="relative w-full">
