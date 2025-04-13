@@ -115,7 +115,7 @@ const Navbar = () => {
                 <UserCircle className="w-8 h-8 text-gray-600" />
                 <div className="space-y-1">
                   <Link
-                    to="/"
+                    to="/login"
                     className="inline-block px-4 py-1.5 bg-purple-600 text-white rounded-full font-medium hover:bg-purple-700 transition-colors shadow-sm"
                   >
                     Login
