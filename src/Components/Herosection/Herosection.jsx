@@ -131,27 +131,8 @@ const HeroSection = () => {
 
   return (
     <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-12 px-6 md:px-16 text-white min-h-screen">
-      {/* Header Section */}
-      <div className="flex flex-col md:flex-row items-center md:justify-between mb-12">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-center md:text-left mb-6 md:mb-0">
-          Discover Artists
-        </h2>
-        <div className="flex items-center bg-white rounded-lg px-2 py-1 w-full md:w-2/5 shadow-md">
-          <input
-            type="text"
-            placeholder="Search artists, songs, or genres..."
-            className="flex-grow px-4 py-2 rounded-lg focus:outline-none text-gray-800 bg-transparent"
-          />
-          <button className="bg-purple-600 px-4 py-2 rounded-lg text-white font-semibold hover:bg-purple-700 transition-colors duration-200 flex items-center">
-            <Search className="w-4 h-4 mr-2" />
-            Search
-          </button>
-        </div>
-      </div>
-
       {/* Featured Artists Carousel */}
       <div className="mb-12">
-        <h3 className="text-2xl font-bold mb-6">Featured Artists</h3>
         <div className="relative overflow-hidden rounded-xl">
           <div 
             className="flex transition-transform duration-500 ease-in-out"
@@ -159,7 +140,7 @@ const HeroSection = () => {
           >
             {artistProfiles.map((artist) => (
               <div key={artist.id} className="w-full flex-shrink-0">
-                <div className="relative h-96 w-full">
+                <div className="relative  w-full">
                   <img
                     src={artist.image}
                     alt={artist.name}
@@ -195,42 +176,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Artist Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {artistProfiles.map((artist, index) => (
-          <div
-            key={artist.id}
-            className="rounded-xl overflow-hidden shadow-lg relative group cursor-pointer transform transition-all duration-300 hover:scale-105"
-            onMouseEnter={() => setHoveredCard(index)}
-            onMouseLeave={() => setHoveredCard(null)}
-            onClick={() => openArtistModal(artist)}
-          >
-            <img
-              src={artist.image}
-              alt={artist.name}
-              className="w-full h-64 object-cover"
-            />
-            <div className={`absolute inset-0 bg-black transition-opacity duration-300 ${
-              hoveredCard === index ? 'bg-opacity-70' : 'bg-opacity-40'
-            }`}>
-              <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <h3 className="text-2xl font-bold mb-2">{artist.name}</h3>
-                <p className="text-gray-300 mb-2">{artist.genres.join(" • ")}</p>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="flex items-center">
-                    <Music className="w-4 h-4 mr-2" />
-                    <span>{artist.stats.monthlyListeners}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Heart className="w-4 h-4 mr-2" />
-                    <span>{artist.stats.followers}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
 
       {/* Artist Profile Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

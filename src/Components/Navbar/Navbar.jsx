@@ -48,7 +48,7 @@ const Navbar = () => {
       {/* Spacer div to prevent content jump when navbar becomes fixed */}
       <div className={`h-16 ${isScrolled ? 'block' : 'hidden'}`}></div>
       <div className={`w-full ${isScrolled ? 'fixed top-0 left-0 right-0 shadow-lg' : ''} transition-all duration-300 ease-in-out z-50`}>
-        <nav className={`flex justify-between items-center px-4 py-3 bg-gradient-to-r from-blue-200 via-pink-100 to-purple-200 
+        <nav className={`flex justify-between items-center px-4  bg-gradient-to-r from-blue-200 via-pink-100 to-purple-200 
           ${isScrolled ? 'shadow-lg backdrop-blur-sm bg-opacity-90' : ''} 
           transition-all duration-300`}>
           <Link to="https://artswarit.vercel.app/" className="flex items-center space-x-2">
