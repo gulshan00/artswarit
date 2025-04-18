@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { Search, MapPin, Mail, Link2, X, Play, Pause, Music, Heart, Share2 } from 'lucide-react';
 
@@ -6,9 +5,9 @@ const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg w-full max-w-2xl mx-auto relative">
-        <button onClick={onClose} className="absolute right-4 top-4 text-gray-500 hover:text-gray-700">
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
+      <div className="bg-white rounded-xl w-full max-w-2xl mx-auto relative overflow-hidden shadow-2xl">
+        <button onClick={onClose} className="absolute right-4 top-4 text-gray-500 hover:text-gray-700 z-10">
           <X className="w-6 h-6" />
         </button>
         {children}
@@ -21,22 +20,22 @@ const MusicPlayer = ({ song }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="bg-gray-900 p-4 rounded-lg flex items-center gap-4">
+    <div className="bg-gradient-to-r from-gray-900 to-gray-800 p-4 rounded-lg flex items-center gap-4 hover:bg-gray-800 transition-all shadow-md">
       <button 
         onClick={() => setIsPlaying(!isPlaying)}
-        className="bg-purple-600 p-2 rounded-full hover:bg-purple-700 transition-colors"
+        className="bg-purple-600 p-2 rounded-full hover:bg-purple-500 transition-all"
       >
-        {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+        {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
       </button>
       <div className="flex-grow">
         <div className="text-white font-medium">{song.title}</div>
         <div className="text-gray-400 text-sm">{song.duration}</div>
       </div>
       <div className="flex gap-3">
-        <button className="text-gray-400 hover:text-white transition-colors">
+        <button className="text-gray-400 hover:text-pink-500 transition-colors">
           <Heart className="w-5 h-5" />
         </button>
-        <button className="text-gray-400 hover:text-white transition-colors">
+        <button className="text-gray-400 hover:text-blue-500 transition-colors">
           <Share2 className="w-5 h-5" />
         </button>
       </div>
@@ -46,9 +45,8 @@ const MusicPlayer = ({ song }) => {
 
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
   const [selectedArtist, setSelectedArtist] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const artistProfiles = [
     {
@@ -116,10 +114,10 @@ const HeroSection = () => {
   // Automatic carousel
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prevSlide) => 
-        prevSlide === artistProfiles.length - 1 ? 0 : prevSlide + 1
+      setActiveIndex((prevIndex) => 
+        prevIndex === artistProfiles.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(timer);
   }, []);
@@ -130,112 +128,165 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-12 px-6 md:px-16 text-white min-h-screen">
-      {/* Featured Artists Carousel */}
-      <div className="mb-12">
-        <div className="relative overflow-hidden rounded-xl">
-          <div 
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-          >
-            {artistProfiles.map((artist) => (
-              <div key={artist.id} className="w-full flex-shrink-0">
-                <div className="relative  w-full">
-                  <img
-                    src={artist.image}
-                    alt={artist.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent">
-                    <div className="absolute bottom-0 left-0 p-8">
-                      <h4 className="text-4xl font-bold mb-2">{artist.name}</h4>
-                      <p className="text-gray-300 mb-4">{artist.genres.join(" • ")}</p>
-                      <button 
-                        onClick={() => openArtistModal(artist)}
-                        className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
-                      >
-                        View Profile
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-            {artistProfiles.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                  currentSlide === index ? 'bg-white' : 'bg-white/50'
-                }`}
-                onClick={() => setCurrentSlide(index)}
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section with Animated Background */}
+      <div className="relative overflow-hidden">
+        {/* Dynamic Background with Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black z-10"></div>
+        
+        {/* Carousel */}
+        <div className="relative h-screen">
+          {artistProfiles.map((artist, index) => (
+            <div 
+              key={artist.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === activeIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={artist.image}
+                alt={artist.name}
+                className="w-full h-full object-cover object-center"
               />
-            ))}
+            </div>
+          ))}
+          
+          {/* Content overlay */}
+          <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-16 lg:px-32">
+            <div className="max-w-3xl">
+              <h4 className="text-sm md:text-base font-semibold mb-2 text-purple-400 uppercase tracking-wider">Featured Artist</h4>
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 drop-shadow-lg">
+                {artistProfiles[activeIndex].name}
+              </h1>
+              <p className="text-gray-300 text-lg md:text-xl mb-6 max-w-2xl">
+                {artistProfiles[activeIndex].bio}
+              </p>
+              <div className="flex flex-wrap gap-4 mb-8">
+                {artistProfiles[activeIndex].genres.map((genre, idx) => (
+                  <span key={idx} className="px-4 py-1 bg-gray-800/70 backdrop-blur-sm rounded-full text-sm">
+                    {genre}
+                  </span>
+                ))}
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <button 
+                  onClick={() => openArtistModal(artistProfiles[activeIndex])}
+                  className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
+                >
+                  <Play className="w-5 h-5" /> Listen Now
+                </button>
+                <button className="bg-transparent border border-white hover:bg-white/10 text-white px-8 py-3 rounded-full font-medium transition-colors">
+                  View Profile
+                </button>
+              </div>
+            </div>
+            
+            {/* Carousel Indicators */}
+            <div className="absolute bottom-16 left-6 md:left-16 lg:left-32 flex gap-3">
+              {artistProfiles.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-12 h-1 rounded-full transition-all duration-300 ${
+                    activeIndex === index ? 'bg-purple-500 w-16' : 'bg-gray-500'
+                  }`}
+                  onClick={() => setActiveIndex(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-
       {/* Artist Profile Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         {selectedArtist && (
-          <div className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <div className="rounded-lg overflow-hidden mb-4">
-                  <img
-                    src={selectedArtist.image}
-                    alt={selectedArtist.name}
-                    className="w-full h-64 object-cover"
-                  />
-                </div>
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-900">{selectedArtist.name}</h2>
-                    <p className="text-gray-600">{selectedArtist.genres.join(" • ")}</p>
-                  </div>
-                  <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
-                    Follow
-                  </button>
-                </div>
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-gray-900">{selectedArtist.stats.monthlyListeners}</div>
-                    <div className="text-sm text-gray-600">Monthly Listeners</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-gray-900">{selectedArtist.stats.followers}</div>
-                    <div className="text-sm text-gray-600">Followers</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-gray-900">{selectedArtist.stats.topCharts}</div>
-                    <div className="text-sm text-gray-600">Charts</div>
-                  </div>
-                </div>
+          <div>
+            {/* Modal Header with Artist Image */}
+            <div className="relative h-40 overflow-hidden">
+              <img
+                src={selectedArtist.image}
+                alt={selectedArtist.name}
+                className="w-full h-full object-cover filter blur-sm"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/90"></div>
+              <div className="absolute bottom-4 left-6 right-6 flex items-end justify-between">
+                <h2 className="text-3xl font-bold text-white">{selectedArtist.name}</h2>
+                <button className="bg-purple-600 text-white px-4 py-1 rounded-full hover:bg-purple-700 transition-colors text-sm">
+                  Follow
+                </button>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Top Tracks</h3>
-                <div className="space-y-3">
-                  {selectedArtist.topSongs.map((song, index) => (
-                    <MusicPlayer key={index} song={song} />
-                  ))}
+            </div>
+            
+            {/* Modal Content */}
+            <div className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Left Column - Artist Info */}
+                <div className="md:col-span-1">
+                  <div className="mb-6">
+                    <p className="text-sm text-gray-600 mb-3">{selectedArtist.genres.join(" • ")}</p>
+                    <div className="flex flex-col gap-2 text-sm">
+                      <div className="flex items-center text-gray-600">
+                        <MapPin className="w-4 h-4 mr-2" />
+                        <span>{selectedArtist.location}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Mail className="w-4 h-4 mr-2" />
+                        <span>{selectedArtist.email}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Link2 className="w-4 h-4 mr-2" />
+                        <span>{selectedArtist.website}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-2 mb-6">
+                    <div className="bg-gray-100 p-3 rounded-lg text-center">
+                      <div className="text-lg font-bold text-gray-900">{selectedArtist.stats.monthlyListeners}</div>
+                      <div className="text-xs text-gray-600">Monthly Listeners</div>
+                    </div>
+                    <div className="bg-gray-100 p-3 rounded-lg text-center">
+                      <div className="text-lg font-bold text-gray-900">{selectedArtist.stats.followers}</div>
+                      <div className="text-xs text-gray-600">Followers</div>
+                    </div>
+                    <div className="bg-gray-100 p-3 rounded-lg text-center">
+                      <div className="text-lg font-bold text-gray-900">{selectedArtist.stats.topCharts}</div>
+                      <div className="text-xs text-gray-600">Charts</div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">About</h3>
+                    <p className="text-gray-600 text-sm">{selectedArtist.bio}</p>
+                  </div>
                 </div>
-                <div className="mt-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">About</h3>
-                  <p className="text-gray-600 mb-4">{selectedArtist.bio}</p>
-                  <div className="space-y-2">
-                    <div className="flex items-center text-gray-600">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      <span>{selectedArtist.location}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Mail className="w-4 h-4 mr-2" />
-                      <span>{selectedArtist.email}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Link2 className="w-4 h-4 mr-2" />
-                      <span>{selectedArtist.website}</span>
+                
+                {/* Right Column - Music Player */}
+                <div className="md:col-span-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Top Tracks</h3>
+                  <div className="space-y-3">
+                    {selectedArtist.topSongs.map((song, index) => (
+                      <MusicPlayer key={index} song={song} />
+                    ))}
+                  </div>
+                  
+                  <div className="mt-6 bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-lg">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">Upcoming Shows</h3>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <div>
+                          <div className="font-medium">The Echo Lounge</div>
+                          <div className="text-sm text-gray-600">Los Angeles, CA</div>
+                        </div>
+                        <div className="text-sm">May 12, 2025</div>
+                      </div>
+                      <div className="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <div>
+                          <div className="font-medium">Sonic Festival</div>
+                          <div className="text-sm text-gray-600">Miami, FL</div>
+                        </div>
+                        <div className="text-sm">June 24, 2025</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -249,6 +300,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
-
