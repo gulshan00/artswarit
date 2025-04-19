@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Search, MapPin, Mail, Link2, X, Play, Pause, Music, Heart, Share2 } from 'lucide-react';
+/* eslint-disable react/prop-types */
+import  { useState, useEffect } from 'react';
+import {  MapPin, Mail, Link2, X, Play, Pause, Heart, Share2 } from 'lucide-react';
 
+// eslint-disable-next-line react/prop-types
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -16,6 +18,7 @@ const Modal = ({ isOpen, onClose, children }) => {
   );
 };
 
+// eslint-disable-next-line react/prop-types
 const MusicPlayer = ({ song }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 

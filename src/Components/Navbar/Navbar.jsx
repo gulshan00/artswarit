@@ -75,7 +75,7 @@
 //                 <span>{item.label}</span>
 //               </Link>
 //             ))}
-           
+
 //           </div>
 //           <div className="hidden md:flex items-center space-x-3">
 //             <Link
@@ -177,11 +177,11 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { 
-  Menu, 
-  X, 
-  UserCircle, 
-  Music, 
+import {
+  Menu,
+  X,
+  UserCircle,
+  Music,
   Search,
   Sparkles,
   Users,
@@ -194,7 +194,7 @@ import {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -226,20 +226,20 @@ const Navbar = () => {
     <>
       {/* Spacer div to prevent content jump when navbar becomes fixed */}
       <div className={`h-16 ${isScrolled ? 'block' : 'hidden'}`}></div>
-      
+
       <div className={`w-full ${isScrolled ? 'fixed top-0 left-0 right-0 z-50' : 'absolute top-0 left-0 right-0 z-50'}`}>
         <nav className={`
           flex justify-between items-center px-4 lg:px-10 py-3
-          ${isScrolled 
-            ? 'bg-black/80 backdrop-blur-md shadow-lg' 
+          ${isScrolled
+            ? 'bg-black/80 backdrop-blur-md shadow-lg'
             : 'bg-gradient-to-r from-black/80 to-transparent backdrop-blur-sm'}
           transition-all duration-300`}>
-          
+
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 ">
-          <img src="/assets/logo2.jpg" alt="Artswarit" className="w-24 h-18 " />
+            <img src="/assets/logo2.jpg" alt="Artswarit" className="w-24 h-18 mix-blend-lighten " />
           </Link>
-          
+
           {/* Desktop Search */}
           <div className="hidden md:flex items-center max-w-md w-full mx-4">
             <div className="relative w-full">
@@ -251,7 +251,7 @@ const Navbar = () => {
               <Search className="absolute right-4 top-3 text-gray-400 w-4 h-4" />
             </div>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -265,7 +265,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          
+
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-3">
             <Link
@@ -275,7 +275,7 @@ const Navbar = () => {
               Login
             </Link>
           </div>
-          
+
           {/* Mobile Menu Button */}
           <button
             className="block md:hidden text-white"
@@ -285,25 +285,24 @@ const Navbar = () => {
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </nav>
-        
+
         {/* Mobile Menu Sidebar */}
         <div
-          className={`fixed top-0 left-0 w-72 h-full bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out z-60 ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`fixed top-0 left-0 w-72 h-full bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out z-60 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
         >
           <div className="flex flex-col h-full">
             {/* Mobile Menu Header */}
             <div className="p-5 border-b border-gray-800">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-2">
-                <img src="/assets/logo2.jpg" alt="Artswarit" className="w-24 h-18 " />
+                  <img src="/assets/logo2.jpg" alt="Artswarit" className="w-24 h-18 " />
                 </div>
                 <button onClick={toggleMenu} className="text-gray-400 hover:text-white">
                   <X className="w-6 h-6" />
                 </button>
               </div>
-              
+
               {/* Mobile User Section */}
               <div className="flex items-center space-x-3 mb-4">
                 <UserCircle className="w-10 h-10 text-gray-400" />
@@ -312,7 +311,7 @@ const Navbar = () => {
                   <p className="text-xs text-gray-400">Sign in to access all features</p>
                 </div>
               </div>
-              
+
               {/* Mobile Search */}
               <div className="relative">
                 <input
@@ -337,7 +336,7 @@ const Navbar = () => {
                   <span>{item.label}</span>
                 </Link>
               ))}
-              
+
               <div className="border-t border-gray-800 my-4 pt-4">
                 <p className="text-xs text-gray-500 uppercase font-medium mb-2 px-2">Discover</p>
                 <Link
@@ -377,7 +376,7 @@ const Navbar = () => {
                 >
                   Login
                 </Link>
-                
+
               </div>
             </div>
           </div>
