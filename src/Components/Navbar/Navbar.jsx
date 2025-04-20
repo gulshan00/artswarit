@@ -237,7 +237,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 ">
-            <img src="/assets/logo2.jpg" alt="Artswarit" className="w-24 h-18 mix-blend-lighten " />
+            <img src="/assets/logo3.png" alt="Artswarit" className="w-24 h-18" />
           </Link>
 
           {/* Desktop Search */}
@@ -296,7 +296,7 @@ const Navbar = () => {
             <div className="p-5 border-b border-gray-800">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-2">
-                  <img src="/assets/logo2.jpg" alt="Artswarit" className="w-24 h-18 " />
+                  <img src="/assets/logo3.png" alt="Artswarit" className="w-24 h-18 " />
                 </div>
                 <button onClick={toggleMenu} className="text-gray-400 hover:text-white">
                   <X className="w-6 h-6" />
@@ -385,7 +385,8 @@ const Navbar = () => {
         {/* Overlay */}
         {isMenuOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-70 z-50"
+            // className="fixed inset-0 bg-black bg-opacity-70 z-50"
+             className="fixed  bg-black bg-opacity-70 z-50"
             onClick={toggleMenu}
           ></div>
         )}
