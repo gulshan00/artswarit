@@ -167,7 +167,7 @@ const LandingPageSections = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-900 via-purple-600 to-pink-600">
+    <div id="trending" className="min-h-screen scroll-mt-24 bg-gradient-to-r from-purple-900 via-purple-600 to-pink-600">
       {/* Hero Section */}
       <section className="py-20 px-4 md:px-8 text-center">
         <div className="max-w-6xl mx-auto">

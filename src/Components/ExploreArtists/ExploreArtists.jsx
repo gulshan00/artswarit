@@ -7,12 +7,12 @@ const ExploreArtists = () => {
   const [currentView, setCurrentView] = useState("featured"); // "featured", "approved", "discover", "topPerformers"
   const [searchTerm, setSearchTerm] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
-  
+
   const artists = [
-    { 
-      name: "Hanna Tinne", 
-      role: "Acoustic Visionary", 
-      image: "/assets/girl1.jpg", 
+    {
+      name: "Hanna Tinne",
+      role: "Acoustic Visionary",
+      image: "/assets/girl1.jpg",
       views: 3256,
       followers: 12800,
       lastPerformance: "April 15, 2025",
@@ -21,10 +21,10 @@ const ExploreArtists = () => {
       approved: true,
       genre: "Folk"
     },
-    { 
-      name: "Oli Page", 
-      role: "Acoustic Sculptor", 
-      image: "/assets/girl1.jpg", 
+    {
+      name: "Oli Page",
+      role: "Acoustic Sculptor",
+      image: "/assets/girl1.jpg",
       views: 2894,
       followers: 8600,
       lastPerformance: "April 2, 2025",
@@ -33,10 +33,10 @@ const ExploreArtists = () => {
       approved: true,
       genre: "Alternative"
     },
-    { 
-      name: "Doc Lamerik", 
-      role: "Poet / Lyricist", 
-      image: "/assets/girl1.jpg", 
+    {
+      name: "Doc Lamerik",
+      role: "Poet / Lyricist",
+      image: "/assets/girl1.jpg",
       views: 4721,
       followers: 15900,
       lastPerformance: "March 28, 2025",
@@ -45,10 +45,10 @@ const ExploreArtists = () => {
       approved: false,
       genre: "Hip-Hop"
     },
-    { 
-      name: "Bergines Prest", 
-      role: "Sound Crafter", 
-      image: "/assets/girl1.jpg", 
+    {
+      name: "Bergines Prest",
+      role: "Sound Crafter",
+      image: "/assets/girl1.jpg",
       views: 1853,
       followers: 6400,
       lastPerformance: "April 10, 2025",
@@ -57,10 +57,10 @@ const ExploreArtists = () => {
       approved: true,
       genre: "Electronic"
     },
-    { 
-      name: "Loana Grokels", 
-      role: "Creative Force", 
-      image: "/assets/girl1.jpg", 
+    {
+      name: "Loana Grokels",
+      role: "Creative Force",
+      image: "/assets/girl1.jpg",
       views: 5632,
       followers: 19300,
       lastPerformance: "April 5, 2025",
@@ -69,10 +69,10 @@ const ExploreArtists = () => {
       approved: true,
       genre: "Indie"
     },
-    { 
-      name: "Wibrores Belap", 
-      role: "Musical Enthusiast", 
-      image: "/assets/girl1.jpg", 
+    {
+      name: "Wibrores Belap",
+      role: "Musical Enthusiast",
+      image: "/assets/girl1.jpg",
       views: 2187,
       followers: 7200,
       lastPerformance: "March 20, 2025",
@@ -81,10 +81,10 @@ const ExploreArtists = () => {
       approved: false,
       genre: "World"
     },
-    { 
-      name: "Ella Vees", 
-      role: "Melody Maker", 
-      image: "/assets/girl1.jpg", 
+    {
+      name: "Ella Vees",
+      role: "Melody Maker",
+      image: "/assets/girl1.jpg",
       views: 3975,
       followers: 14500,
       lastPerformance: "April 12, 2025",
@@ -93,10 +93,10 @@ const ExploreArtists = () => {
       approved: true,
       genre: "Classical"
     },
-    { 
-      name: "Nora Blinks", 
-      role: "Harmonic Innovator", 
-      image: "/assets/girl1.jpg", 
+    {
+      name: "Nora Blinks",
+      role: "Harmonic Innovator",
+      image: "/assets/girl1.jpg",
       views: 2143,
       followers: 9800,
       lastPerformance: "March 25, 2025",
@@ -110,18 +110,18 @@ const ExploreArtists = () => {
   // Filter artists based on current view
   const getFilteredArtists = () => {
     let filteredArtists = [...artists];
-    
+
     // Apply search filter if search term exists
     if (searchTerm) {
-      filteredArtists = filteredArtists.filter(artist => 
+      filteredArtists = filteredArtists.filter(artist =>
         artist.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         artist.role.toLowerCase().includes(searchTerm.toLowerCase()) ||
         artist.genre.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    
+
     // Apply view filter
-    switch(currentView) {
+    switch (currentView) {
       case "approved":
         return filteredArtists.filter(artist => artist.approved);
       case "discover":
@@ -154,8 +154,9 @@ const ExploreArtists = () => {
 
   const renderArtistCard = (artist, index) => (
     <div
+      id="artists"
       key={index}
-      className="flex-shrink-0 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 w-64 group cursor-pointer"
+      className="flex-shrink-0 scroll-mt-48 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 w-64 group cursor-pointer"
       onClick={() => openArtistProfile(artist)}
     >
       <div className="relative w-full h-48 rounded-xl overflow-hidden mb-3 group-hover:opacity-90 transition-opacity">
@@ -165,7 +166,7 @@ const ExploreArtists = () => {
           className="object-cover w-full h-full"
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <button 
+          <button
             className="bg-white rounded-full p-3 transform hover:scale-110 transition-transform"
             onClick={(e) => {
               e.stopPropagation();
@@ -183,11 +184,11 @@ const ExploreArtists = () => {
       </div>
       <h4 className="text-lg font-bold text-gray-800">{artist.name}</h4>
       <p className="text-sm text-gray-600 mb-3">{artist.role}</p>
-      
+
       <div className="flex justify-between items-center mt-2">
         <div className="flex items-center space-x-1">
-          <button 
-            onClick={(e) => toggleLike(index, e)} 
+          <button
+            onClick={(e) => toggleLike(index, e)}
             className="p-1.5 rounded-full hover:bg-gray-100 transition-colors"
           >
             <Heart size={18} className={likedArtists[index] ? "text-red-500 fill-red-500" : "text-gray-400"} />
@@ -211,7 +212,7 @@ const ExploreArtists = () => {
         {icon === "music" && <Music className={`mr-2 text-${color}-600`} size={24} />}
         <h3 className="text-2xl font-semibold text-gray-800 tracking-wide">{title}</h3>
       </div>
-      <button 
+      <button
         onClick={() => setCurrentView(viewType)}
         className={`flex items-center text-sm font-medium text-${color}-600 hover:text-${color}-800 transition py-2 px-4 rounded-full hover:bg-${color}-50`}
       >
@@ -224,7 +225,7 @@ const ExploreArtists = () => {
   // Determine what to display based on current view
   const renderCurrentView = () => {
     const filteredArtists = getFilteredArtists();
-    
+
     return (
       <>
         {/* Search and filter bar that appears when not in featured view */}
@@ -242,7 +243,7 @@ const ExploreArtists = () => {
                 />
               </div>
               <div className="relative">
-                <button 
+                <button
                   onClick={() => setFilterOpen(!filterOpen)}
                   className="flex items-center space-x-2 py-2 px-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
                 >
@@ -270,14 +271,14 @@ const ExploreArtists = () => {
         {/* Title based on current view */}
         <div className="mb-6">
           <h2 className="text-3xl font-bold text-gray-800">
-            {currentView === "approved" ? "Approved Artists" : 
-             currentView === "discover" ? "Discover New Creatives" : 
-             currentView === "topPerformers" ? "Top Performers" : "Featured Artists"}
+            {currentView === "approved" ? "Approved Artists" :
+              currentView === "discover" ? "Discover New Creatives" :
+                currentView === "topPerformers" ? "Top Performers" : "Featured Artists"}
           </h2>
           <p className="text-gray-600">
-            {currentView === "approved" ? "Artists who have been verified by our team" : 
-             currentView === "discover" ? "Explore emerging talent in our community" : 
-             currentView === "topPerformers" ? "Most popular artists based on listener counts" : "Our selection of notable artists"}
+            {currentView === "approved" ? "Artists who have been verified by our team" :
+              currentView === "discover" ? "Explore emerging talent in our community" :
+                currentView === "topPerformers" ? "Most popular artists based on listener counts" : "Our selection of notable artists"}
           </p>
         </div>
 
@@ -289,7 +290,7 @@ const ExploreArtists = () => {
         {/* Return to featured link when in other views */}
         {currentView !== "featured" && (
           <div className="mt-8 text-center">
-            <button 
+            <button
               onClick={() => setCurrentView("featured")}
               className="text-purple-600 hover:text-purple-800 font-medium"
             >
@@ -323,7 +324,7 @@ const ExploreArtists = () => {
           </div>
 
           {/* Section 3 - Top Performers */}
-          <div>
+          <div id="explore" className="scroll-mt-32">
             {renderSectionHeader("music", "Top Performers", "Explore More", "topPerformers", "blue")}
             <div className="flex overflow-x-auto space-x-6 scrollbar-hide pb-4">
               {artists.slice(0, 4).map((artist, index) => renderArtistCard(artist, index + 20))}
@@ -342,20 +343,20 @@ const ExploreArtists = () => {
             <div className="relative">
               {/* Header with close button */}
               <div className="flex justify-end p-4">
-                <button 
-                  className="rounded-full p-2 hover:bg-gray-100 transition-colors" 
+                <button
+                  className="rounded-full p-2 hover:bg-gray-100 transition-colors"
                   onClick={closeArtistProfile}
                 >
                   <X size={24} className="text-gray-600" />
                 </button>
               </div>
-              
+
               {/* Artist Info */}
               <div className="px-8 pb-8">
                 <div className="flex flex-col md:flex-row">
                   <div className="w-full md:w-1/3 pr-0 md:pr-6 mb-6 md:mb-0">
                     <div className="relative rounded-xl overflow-hidden w-full h-64 mb-4">
-                      <img 
+                      <img
                         src={selectedArtist.image}
                         alt={selectedArtist.name}
                         className="w-full h-full object-cover"
@@ -377,16 +378,16 @@ const ExploreArtists = () => {
                       </button>
                     </div>
                   </div>
-                  
+
                   <div className="w-full md:w-2/3">
                     <h2 className="text-3xl font-bold text-gray-800 mb-2">{selectedArtist.name}</h2>
                     <div className="flex items-center mb-4">
                       <p className="text-lg text-purple-600 mr-3">{selectedArtist.role}</p>
                       <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">{selectedArtist.genre}</span>
                     </div>
-                    
+
                     <p className="text-gray-600 mb-6">{selectedArtist.bio}</p>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                       <div className="flex items-center bg-gray-50 p-3 rounded-lg">
                         <Calendar size={20} className="text-purple-600 mr-3" />
@@ -395,7 +396,7 @@ const ExploreArtists = () => {
                           <p className="text-sm font-medium">{selectedArtist.lastPerformance}</p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-center bg-gray-50 p-3 rounded-lg">
                         <Users size={20} className="text-purple-600 mr-3" />
                         <div>
@@ -403,7 +404,7 @@ const ExploreArtists = () => {
                           <p className="text-sm font-medium">{selectedArtist.followers.toLocaleString()}</p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-center bg-gray-50 p-3 rounded-lg">
                         <Headphones size={20} className="text-purple-600 mr-3" />
                         <div>
@@ -411,7 +412,7 @@ const ExploreArtists = () => {
                           <p className="text-sm font-medium">{selectedArtist.topTrack}</p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-center bg-gray-50 p-3 rounded-lg">
                         <Eye size={20} className="text-purple-600 mr-3" />
                         <div>
@@ -420,7 +421,7 @@ const ExploreArtists = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <h3 className="text-xl font-semibold mb-4">Recent Tracks</h3>
                     <div className="space-y-3">
                       {[1, 2, 3].map((item) => (

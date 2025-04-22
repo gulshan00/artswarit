@@ -131,7 +131,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div id='home' className="min-h-screen bg-black text-white">
       {/* Hero Section with Animated Background */}
       <div className="relative overflow-hidden">
         {/* Dynamic Background with Gradient Overlay */}
