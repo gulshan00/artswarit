@@ -361,7 +361,7 @@ const Navbar = () => {
                   onClick={toggleMenu}
                 >
                   <Sparkles className="w-4 h-4" />
-                  <span>New Releases</span>
+                  <span>New Releasess</span>
                 </Link>
               </div>
             </div>
