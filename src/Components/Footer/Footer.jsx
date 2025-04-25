@@ -8,6 +8,7 @@ import {
   HelpCircle, Settings, Book, Award, ChevronDown, ChevronUp
 } from 'lucide-react';
 import BlogCarousel from '../Blog/BlogCarousel';
+import WhatsAppChatbot from '../WhatsAppChatbot/WhatsAppChatbot';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -193,6 +194,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <WhatsAppChatbot />
       </div>
     </footer>
   );
